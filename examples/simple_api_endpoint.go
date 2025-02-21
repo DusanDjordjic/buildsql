@@ -57,12 +57,12 @@ type OrderFilters struct {
 func (filters *OrderFilters) Parse() error {
 	// Do the parsing here and populate the struct
 	filters.Status = ORDER_CREATED
-	if scheduleStart, err := time.Parse("2006-01-02T05:06", "2025-01-20Y16:30"); err == nil {
+	if scheduleStart, err := time.Parse("2006-01-02T15:06", "2025-01-20T16:30"); err == nil {
 		filters.ScheduledStart = new(time.Time)
 		*filters.ScheduledStart = scheduleStart
 	}
 
-	if scheduleEnd, err := time.Parse("2006-01-02T05:06", "2025-01-21Y00:00"); err == nil {
+	if scheduleEnd, err := time.Parse("2006-01-02T15:06", "2025-01-21T00:00"); err == nil {
 		filters.ScheduledEnd = new(time.Time)
 		*filters.ScheduledEnd = scheduleEnd
 	}
