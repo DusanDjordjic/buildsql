@@ -13,7 +13,7 @@ beacuse its just string concatination.
 3. Use query args to generate SQL
 4. Execute the query
 
-See [simple api example](./examples/simples_api_endpoint.go), it's real code from one of my projects and it works great.
+See [simple api example](https://github.com/DusanDjordjic/buildsql/blob/master/examples/simple_api_endpoint.go), it's real code from one of my projects and it works great.
 
 ## Next steps
 
