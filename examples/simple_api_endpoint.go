@@ -11,8 +11,8 @@ import (
 
 /*
 	Lets say that we support sorting and filtering by varios parametes
-	in our GetOrders endpoint. We can imaging that after parsing the request we
-	can generate a GetOrdersFilters struct that will store every detail about what user wants to see
+	in our GetOrders endpoint. We can imagine that after parsing the request we
+	can generate a GetOrdersFilters struct that will store every detail about what user wants to see.
 	After that we can have a Build method that will build the QueryArgs that we can then
 	use to query our database
 */
@@ -55,7 +55,7 @@ type OrderFilters struct {
 }
 
 func (filters *OrderFilters) Parse() error {
-	// Do the actual parsing here and populate the struct
+	// Do the parsing here and populate the struct
 	filters.Status = ORDER_CREATED
 	if scheduleStart, err := time.Parse("2006-01-02T05:06", "2025-01-20Y16:30"); err == nil {
 		filters.ScheduledStart = new(time.Time)
@@ -111,12 +111,13 @@ func (filters *OrderFilters) GenerateQueryArgs(userID uint64) buildsql.QueryArgs
 	return q
 }
 
-// This function lives is called by every handler to get the query builder
+// This function is called by every handler to get the query builder
 // so if you want to change something you just do it here
 func GetQueryBuilder() buildsql.QueryBuilder {
 	return &buildsql.IntQueryBuilder{ArgCounter: 1}
 }
 
+// This is our route handler for example
 func GetOrders() {
 	filters := OrderFilters{}
 	filters.QueryBuilder = GetQueryBuilder()
